@@ -27,7 +27,9 @@ public class SegmentedRadioActivity extends Activity implements OnCheckedChangeL
 	SegmentedRadioGroup segmentText;
 	SegmentedRadioGroup segmentImg;
 	Toast mToast;
-
+	CenteredRadioImageButton mButton1;
+	CenteredRadioImageButton mButton2;
+	CenteredRadioImageButton mButton3;
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +42,17 @@ public class SegmentedRadioActivity extends Activity implements OnCheckedChangeL
         segmentImg.setOnCheckedChangeListener(this);
 
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+        mButton1 = (CenteredRadioImageButton)findViewById(R.id.button_add);
+        mButton2 = (CenteredRadioImageButton)findViewById(R.id.button_call);
+        mButton3 = (CenteredRadioImageButton)findViewById(R.id.button_camera);
     }
-
+    @Override
+    public void onResume(){
+    	super.onResume();
+        mButton1.setButtonImageResource(R.drawable.duesoon01);
+        mButton2.setButtonImageResource(R.drawable.duesoon01);
+        mButton3.setButtonImageResource(R.drawable.duesoon01);
+    }
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		if (group == segmentText) {

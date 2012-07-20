@@ -26,14 +26,18 @@ import android.widget.RadioButton;
 public class CenteredRadioImageButton extends RadioButton {
 
 	Drawable image;
-
 	public CenteredRadioImageButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		TypedArray a = context.obtainStyledAttributes(attrs, com.makeramen.segmented.R.styleable.CompoundButton, 0, 0);
 		image = a.getDrawable(1);
 		setButtonDrawable(android.R.color.transparent);
 	}
-
+	public void setButtonImageResource(int imageResourceID){
+		setButtonImageDrawable(getResources().getDrawable(imageResourceID));
+	}
+	public void setButtonImageDrawable(Drawable imageDrawable){
+		image = imageDrawable;
+	}
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
